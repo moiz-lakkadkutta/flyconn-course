@@ -1,0 +1,3 @@
+# Each notebook is paired with a percent-format .py file (review and lint the .py; run
+# `uv run jupytext --sync notebooks/*.py` after editing either side).
+formats = "ipynb,py:percent"

@@ -1,0 +1,110 @@
+{
+  "attribution": "Derived from the MaleCNS v1.0 connectome (Berg et al. 2026, CC BY 4.0) via flyconn; subset and column selection by flyconn-course.",
+  "built_by": "scripts/build_teaching_subset.py",
+  "citation": {
+    "doi": "10.1016/j.cell.2026.08.015",
+    "text": "Berg S, Beckett IR, Costa M, Schlegel P, Januszewski M, et al. Sexual dimorphism in the complete Drosophila male central nervous system connectome. Cell 189(18):5504-5526.e15 (2026)."
+  },
+  "course_git_sha": null,
+  "created_utc": "2026-10-24T10:59:31+00:00",
+  "dataset": "malecns",
+  "duckdb_version": "2.0.0",
+  "edge_threshold": {
+    "minconf": 0.5,
+    "pair_min_synapses": 1
+  },
+  "files": {
+    "edges.parquet": {
+      "bytes": 1675490,
+      "sha256": "8c6e167ef1cced101981572c723dcb95c90d45f127bf6ee660e75f90325cd6b6"
+    },
+    "malecns-1.0-census.parquet": {
+      "bytes": 1617415,
+      "sha256": "0b303552cc1fc9c82f1b8b874cfb3fa475b13f6a24681f5fc1ef2a0486028459"
+    },
+    "neurons.parquet": {
+      "bytes": 2093286,
+      "sha256": "e175103e8fad6b1afcde93fc9ca9f1b1ee80680287f49f38cc3ab21d5c6f71a0"
+    }
+  },
+  "flyconn_version": "0.4.0",
+  "license": "CC-BY-4.0",
+  "nt_probs": {
+    "aggregation": "mean of per-presynapse probabilities",
+    "bodies_with_probabilities": 165665,
+    "source_file": "tbar-neurotransmitters-male-cns-v1.0.feather"
+  },
+  "nt_source": "malecns_v1.0_body_consensus",
+  "registry_ref": "malecns@1.0",
+  "source_store": {
+    "files": {
+      "edges.parquet": "81e96ff7cd4dfd92fe91ad2d0f9d5a73e74946926d1635d240cd4b3d0ee7b7f0",
+      "neurons.parquet": "a1f90d0e1df7479e3324d6c54282f808a63a10fd4893ace1ea6b72d847af8818"
+    },
+    "provenance": {
+      "converter": "flyconn.data.convert.malecns",
+      "converter_version": "2",
+      "counts": {
+        "edges": 25582938,
+        "neurons": 166700,
+        "raw_edges": 151856684,
+        "raw_weight_sum": 311833243
+      },
+      "created_utc": "2026-09-27T17:15:53+00:00",
+      "dataset": "malecns",
+      "edge_threshold": {
+        "minconf": 0.5,
+        "pair_min_synapses": 1
+      },
+      "flyconn_version": "0.0.1",
+      "inputs": [
+        {
+          "bytes": 14483314,
+          "name": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+          "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2"
+        },
+        {
+          "bytes": 43282834,
+          "name": "body-neurotransmitters-male-cns-v1.0.feather",
+          "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621"
+        },
+        {
+          "bytes": 1051241946,
+          "name": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+          "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1"
+        },
+        {
+          "bytes": 2651680218,
+          "name": "tbar-neurotransmitters-male-cns-v1.0.feather",
+          "sha256": "bade84c9eab431dd537ff644aaf3d203d639a819c739ecedb338e7d109064f4d"
+        }
+      ],
+      "level": "nt-probs",
+      "license": "CC-BY-4.0",
+      "neuron_definition": "superclass IS NOT NULL",
+      "nt_probs": {
+        "aggregation": "mean of per-presynapse probabilities",
+        "bodies_with_probabilities": 165665,
+        "source_file": "tbar-neurotransmitters-male-cns-v1.0.feather"
+      },
+      "nt_source": "malecns_v1.0_body_consensus",
+      "python": "3.13.13",
+      "registry_ref": "malecns@1.0",
+      "version": "1.0"
+    }
+  },
+  "subset": {
+    "complete_partner_lists": "focus neurons only",
+    "counts": {
+      "edges": 502095,
+      "focus_neurons": 953,
+      "neurons": 46108,
+      "synapses": 3878833
+    },
+    "description": "LB3* labellar GRNs, MN9, every neuron receiving >= 1 synapse from LB3* and every neuron sending >= 1 synapse to MN9 (focus); all edges with a focus neuron at either end; neurons = focus plus all their partners.",
+    "focus_sql": "SELECT neuron_id AS id FROM neurons WHERE cell_type LIKE 'LB3%' OR cell_type = 'MN9' UNION SELECT post FROM edges WHERE pre IN (SELECT neuron_id FROM neurons WHERE cell_type LIKE 'LB3%') UNION SELECT pre FROM edges WHERE post IN (SELECT neuron_id FROM neurons WHERE cell_type = 'MN9')",
+    "input_totals": "input_synapses_total / output_synapses_total are whole-CNS totals from the full dataset (they include unannotated fragments), so input fractions match the full connectome",
+    "name": "malecns-1.0-gustatory"
+  },
+  "version": "1.0"
+}

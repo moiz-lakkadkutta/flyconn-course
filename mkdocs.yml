@@ -1,0 +1,23 @@
+site_name: Fly Lab
+site_description: Zero-setup Colab notebooks on the Drosophila connectome, built on flyconn
+# Placeholder URLs until the repo is public.
+site_url: https://moiz-lakkadkutta.github.io/flyconn-course/
+repo_url: https://github.com/moiz-lakkadkutta/flyconn-course
+copyright: Course text CC BY 4.0; code Apache-2.0; data CC BY 4.0 (Berg et al. 2026)
+theme:
+  name: material
+  features: [navigation.sections, content.code.copy]
+plugins:
+  - search
+  - mkdocs-jupyter:
+      # Render the outputs committed in the notebooks; CI executes them separately (nbmake).
+      execute: false
+      include: ["*.ipynb"]
+      include_source: true
+nav:
+  - Home: index.md
+  - Notebooks:
+      - 1. Meet the connectome: notebooks/01_meet_the_connectome.ipynb
+      - 2. Who talks to whom: notebooks/02_who_talks_to_whom.ipynb
+  - Teaching data: data.md
+  - Progress: PROGRESS.md

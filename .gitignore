@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+site/
+docs/notebooks/
+docs/PROGRESS.md
+*.part
+.cache/

@@ -1,0 +1,43 @@
+[project]
+name = "flyconn-course"
+version = "0.1.0.dev0"
+description = "Fly Lab: zero-setup Colab notebooks on the Drosophila connectome, built on flyconn"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = [
+    "flyconn==0.4.0",
+    "matplotlib>=3.8",
+]
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.0",
+    "nbmake>=1.5",
+    "pytest>=8",
+    "ruff>=0.6",
+    "jupytext>=1.16",
+    "mkdocs-material>=9.5",
+    "mkdocs-jupyter>=0.25",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["*.ipynb"]  # notebooks are linted through their paired .py files
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# notebook cells end in bare expressions to display them; the setup cell imports after it runs
+"notebooks/0*.py" = ["B018", "E402", "E501"]  # markdown tables and URLs run long
+
+[tool.ruff.lint.isort]
+known-first-party = ["course_utils"]
