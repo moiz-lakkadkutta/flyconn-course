@@ -5,8 +5,8 @@
     "doi": "10.1016/j.cell.2026.08.015",
     "text": "Berg S, Beckett IR, Costa M, Schlegel P, Januszewski M, et al. Sexual dimorphism in the complete Drosophila male central nervous system connectome. Cell 189(18):5504-5526.e15 (2026)."
   },
-  "course_git_sha": null,
-  "created_utc": "2026-10-24T10:59:31+00:00",
+  "course_git_sha": "79c340409ac62be6807892f4474bc9402b74f81f",
+  "created_utc": "2026-10-24T11:08:55+00:00",
   "dataset": "malecns",
   "duckdb_version": "2.0.0",
   "edge_threshold": {
