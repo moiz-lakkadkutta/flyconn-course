@@ -42,9 +42,9 @@ sums when it downloads them.
 ```python
 import course_utils as cu
 
-store = cu.open_store()      # flyconn Store: store.neurons(), store.edges(pre=..., post=...)
-census = cu.load_census()    # pandas DataFrame
-cu.about(store)              # what it is and how to cite it
+store = cu.open_store()  # flyconn Store: store.neurons(), store.edges(pre=..., post=...)
+census = cu.load_census()  # pandas DataFrame
+cu.about(store)  # what it is and how to cite it
 ```
 
 The subset is the data `Store.open("malecns@1.0")` would give, restricted as above, so
