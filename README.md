@@ -14,8 +14,9 @@ course and `PROGRESS.md` for where work stands.
 | 1 | Meet the connectome | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/moiz-lakkadkutta/flyconn-course/blob/main/notebooks/01_meet_the_connectome.ipynb) |
 | 2 | Who talks to whom (thresholds change answers) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/moiz-lakkadkutta/flyconn-course/blob/main/notebooks/02_who_talks_to_whom.ipynb) |
 
-The badges and the data URLs point at `github.com/moiz-lakkadkutta/flyconn-course`, a
-**placeholder** until the repo is public (they 404 today).
+The badges and the notebooks' data downloads point at
+[`github.com/moiz-lakkadkutta/flyconn-course`](https://github.com/moiz-lakkadkutta/flyconn-course)
+(`main`). A course release will pin them to a tag.
 
 ## Data
 

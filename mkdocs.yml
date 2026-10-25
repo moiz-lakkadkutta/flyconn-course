@@ -1,6 +1,5 @@
 site_name: Fly Lab
 site_description: Zero-setup Colab notebooks on the Drosophila connectome, built on flyconn
-# Placeholder URLs until the repo is public.
 site_url: https://moiz-lakkadkutta.github.io/flyconn-course/
 repo_url: https://github.com/moiz-lakkadkutta/flyconn-course
 copyright: Course text CC BY 4.0; code Apache-2.0; data CC BY 4.0 (Berg et al. 2026)

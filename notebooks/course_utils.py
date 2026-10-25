@@ -16,7 +16,7 @@ from pathlib import Path
 import pandas as pd
 from flyconn.data.store import Store
 
-# Placeholder until the repo is public; pin COURSE_REF to a release tag for each course release.
+# Pin COURSE_REF (here and in each notebook's setup cell) to a release tag for each course release.
 COURSE_REPO = "moiz-lakkadkutta/flyconn-course"
 COURSE_REF = "main"
 # FLYLAB_RAW points the download at a mirror (or a local server, for testing).
