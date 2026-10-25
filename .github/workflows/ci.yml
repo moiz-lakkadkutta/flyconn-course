@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python: ["3.11", "3.12"] # Colab runs 3.12 (2026)
+        python: ["3.11", "3.13"] # 3.11 = lowest supported; Colab ran 3.13.16 on 2026-10-25
     steps:
       - uses: actions/checkout@v5
       - uses: astral-sh/setup-uv@v7

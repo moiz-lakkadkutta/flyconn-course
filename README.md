@@ -25,25 +25,38 @@ doi:10.1016/j.cell.2026.08.015, CC BY 4.0), committed in `data/teaching/` and re
 flyconn store by `scripts/build_teaching_subset.py`. See [`docs/data.md`](docs/data.md). It
 stands in until the `flyconn-bench` Hugging Face snapshots exist.
 
-## Measured cost (2026-10-24)
+## Measured cost
 
-Colab stand-in: a fresh Python 3.12 venv on macOS arm64 (M4 Pro), notebooks run from a
-directory outside the repo with the data downloaded over HTTP (`FLYLAB_RAW` pointed at a local
-server) and checked against the SHA-256 sums in `provenance.json`.
+### Real Colab (free tier, 2026-10-25)
+
+Opened through the badges, "Run all" on a fresh runtime: Python 3.13.16, 12.7 GB RAM, with
+pandas 2.2.3, numpy 2.1.3, duckdb 1.3.2, pyarrow 23.0.1, scipy 1.16.3 and matplotlib 3.10.0
+preinstalled.
+
+| Step | Measured |
+|---|---|
+| `pip install flyconn==0.4.0 matplotlib` | 2.7 s; installs only the flyconn wheel (every dependency is preinstalled) |
+| Notebook 1 setup cell (install, fetch `course_utils.py`, imports) | 8 s |
+| Notebook 1, all 19 code cells | no errors; peak kernel RSS 342 MB |
+| Notebook 2, all 17 code cells | no errors; whole notebook done 16 s after the kernel started; peak kernel RSS 354 MB |
+
+Peak memory is under 3 % of the free tier. Runtime start-up (about 10–20 s, Colab's own) is
+extra.
+
+### Local stand-in (2026-10-24)
+
+A fresh Python 3.12 venv on macOS arm64 (M4 Pro), notebooks run from a directory outside the
+repo with the data downloaded over HTTP and checked against the SHA-256 sums in
+`provenance.json`.
 
 | Step | Measured |
 |---|---|
 | `pip install --no-cache-dir flyconn==0.4.0 matplotlib` into an empty venv | 95 s wall (8 s CPU; the rest is download), 497 MB installed, mostly pyarrow, scipy, pandas, duckdb |
 | Notebook 1, first run (data download plus matplotlib font-cache build) | 28 s, peak RSS 309 MB |
 | Notebook 2 | 2 s, peak RSS 320 MB |
-| Both notebooks through `jupyter nbconvert --execute` | 5 s, peak RSS 326 MB |
 | `pytest --nbmake notebooks/` in the dev env | 2 passed, about 4 s |
 
-Not yet measured on real Colab. Colab preinstalls numpy, scipy, pandas, pyarrow and
-matplotlib at versions that satisfy flyconn's lower bounds, so there `pip` should only fetch
-flyconn (and duckdb if missing). The notebooks also ran on an older, Colab-like stack (pandas
-2.2.2, numpy 2.0.2, duckdb 1.1.3, matplotlib 3.10.0). Free Colab gives about 12 GB RAM, so
-notebooks 1–2 use under 3 % of it.
+The notebooks also ran on pandas 2.2.2, numpy 2.0.2 and duckdb 1.1.3.
 
 ## Develop
 
