@@ -62,3 +62,9 @@ the owner).
   as guesses with `SignPolicy.SAMPLED`). Use the Shiu sugar IDs or MaleCNS `LB3c+LB3d` where
   sugar specificity matters (see flyconn caveats); the subset already contains every
   LB3* -> MN9 path up to 3 hops.
+
+## 2026-10-26: owner answers the open questions
+
+First audience is self-learners online (intro-college level, notebooks stand alone). Build
+first, offer to FlyWire Academy / CUNEL after M1–M2. English only for now, written so it can
+be translated later. Recorded in `PLAN.md` under "Owner decisions".
