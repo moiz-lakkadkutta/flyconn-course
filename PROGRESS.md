@@ -2,6 +2,23 @@
 
 Running log so a later session can resume. Newest entry first.
 
+## 2026-10-25: repo public, CI green, real Colab run (branch m0-ci-colab, PR #1)
+
+- The owner created github.com/moiz-lakkadkutta/flyconn-course (public); `main` = m0-basic.
+  Colab badges and data URLs now resolve (checked with curl, and by running both notebooks from
+  a bare directory that downloaded `course_utils.py` and the data from raw.githubusercontent).
+- **CI:** the initial push and PR #1 did not trigger the `ci` workflow (no runs at all; the
+  workflow is active and valid per actionlint, Actions is enabled, and other repos run fine).
+  Added `workflow_dispatch` and started a manual run on the PR branch: run 40177255913,
+  green (notebooks 3.11 and 3.12, site). Whether push/pull_request events start firing once
+  the workflow is on `main` is untested; check after merging PR #1.
+- **Real Colab** (free tier): Python 3.13.16, 12.7 GB. `pip install flyconn==0.4.0` took 2.7 s
+  and installed only the flyconn wheel. Notebook 1: 19/19 code cells, peak kernel RSS 342 MB;
+  notebook 2: 17/17 code cells, done 16 s after kernel start, 354 MB. README has the table.
+- CI matrix moved from 3.11/3.12 to 3.11/3.13 to match Colab.
+- Open: owner questions in PLAN.md (audience, partners, translations); pin COURSE_REF to a tag
+  at the first course release.
+
 ## 2026-10-24: M0 plus notebooks 1–2 (branch m0-basic, local only)
 
 Asked for by the google-fly session on the owner's behalf: a basic working implementation to
@@ -45,3 +62,9 @@ the owner).
   as guesses with `SignPolicy.SAMPLED`). Use the Shiu sugar IDs or MaleCNS `LB3c+LB3d` where
   sugar specificity matters (see flyconn caveats); the subset already contains every
   LB3* -> MN9 path up to 3 hops.
+
+## 2026-10-26: owner answers the open questions
+
+First audience is self-learners online (intro-college level, notebooks stand alone). Build
+first, offer to FlyWire Academy / CUNEL after M1–M2. English only for now, written so it can
+be translated later. Recorded in `PLAN.md` under "Owner decisions".

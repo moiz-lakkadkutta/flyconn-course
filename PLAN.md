@@ -91,8 +91,13 @@ Evidence from the 2026-10-24 research pass:
 - Students over-reading simulations. The controls lesson and the labels are the guard.
 - Rot as flyconn changes. Pin versions per course release and execute in CI.
 
-## Open questions for the owner (ask early, one at a time)
+## Owner decisions (2026-10-26)
 
-- Who is the first real audience: a specific class, a workshop, or self-learners online?
-- Do you want to partner with FlyWire Academy or CUNEL from the start, or build first and offer later?
-- English only, or plan for translations?
+- **First audience: self-learners online.** Anyone opening a Colab badge, at intro-college
+  level. Every notebook must stand alone: no instructor, explanations in the text, solutions
+  hidden but present.
+- **Partners: build first, offer later.** Finish M1–M2 so there is something concrete to show;
+  the owner then approaches FlyWire Academy / CUNEL. No outreach before that.
+- **Language: English now, translation-ready.** Keep teaching prose in markdown cells, keep
+  printed strings in code cells short and few, so a translation is a copy of the markdown, not
+  a rewrite.
